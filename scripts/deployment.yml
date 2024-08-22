@@ -24,7 +24,7 @@ spec:
           - name: PORT
             value: "4040"
           - name: DATABASE_URL
-            value: ""
+            value: "postgresql://lyons_sit722_part2_user:ea19nWVMrtDgxCm2K0CgTntb3cAWinKO@dpg-cr3h3tbqf0us73e7do40-a.oregon-postgres.render.com/lyons_sit722_part2"
 
 ---
 apiVersion: v1

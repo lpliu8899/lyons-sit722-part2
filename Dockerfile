@@ -1,11 +1,9 @@
 # Dockerfile for book_catalog microservice
+#Specify Python version
 FROM python:3.12
-WORKDIR /app
-COPY book_catalog/requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
-COPY book_catalog /app
-COPY scripts /app
-EXPOSE 4040
-CMD ["unicorn","main:app","--host","0.0.0.0","--port","4040"]
-
-
+#Copy book catalog into current directory
+ADD book_catalog $PWD
+#Install all project dependencies
+RUN pip install --no-cache-dir --upgrade -r $PWD/requirements.txt
+#Command to run the FastAPI application using Uvicorn when the Docker container starts
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0"]
